@@ -1,6 +1,6 @@
 {
     "name": "cav-rpc",
-    "version": "0.0.4",
+    "version": "0.0.6",
     "description": "",
     "main": "index.js",
     "repository": {
@@ -15,7 +15,8 @@
         "build-win": "electron-builder build --win --publish never",
         "deploy-win": "electron-builder build --win --publish always",
         "build-linux": "electron-builder build --linux --publish never",
-        "deploy-linux": "electron-builder build --linux --publish always"
+        "deploy-linux": "electron-builder build --linux --publish always",
+        "deploy": "electron-builder build --linux --win --publish always"
     },
     "keywords": [],
     "author": "Bryce Cary <robotics@brycecary.dev>",
