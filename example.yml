@@ -1,0 +1,27 @@
+win:
+    target:
+      - target: nsis
+            installerIcon: "img/install-logo.ico"
+            installerHeaderIcon: "img/logo.ico"
+            license: "license.txt"
+            deleteAppDataOnUninstall: true
+            runAfterFinish: true
+            createDesktopShortcut: "always"
+            createStartMenuShortcut: true
+            menuCategory: "4541 Cavineers"
+            shortcutName: "Cavineers Discord Presence"
+            asar: true
+        arch:
+          - x64
+    
+linux:
+    target:
+      - target: deb
+    icon: "img/logo.png"
+    synopsis: "Cavineers Discord Presence"
+    category: InstantMessaging
+publish:
+  - provider: github
+    GH_TOKEN: "d890414ccb9d227d50d7b4a50d2c4054ffca67c4"
+    releaseType: "release"
+    vPrefixedTagName: true
