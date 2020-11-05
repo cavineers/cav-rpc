@@ -14,12 +14,61 @@
 <body>
     <!-- Boot page -->
     <div id="boot">
+        <img src="./img/logo.png" alt="" draggable="false">
         <h1>Cav RPC</h1>
         <p id="boot-text">Loading...</p>
     </div>
 
     <!-- Main page -->
     <div id="main">
-        <p>main</p>
+        <nav class="red" id="nb">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo" id="nbt">Disconnected</a>
+                <ul id="nav-mobile" class="right">
+                    <li><a href="#" data-target="sn" class="sidenav-trigger"><img src="./img/settings-white-48dp.svg" alt=""></a></li>
+                </ul>
+            </div>
+        </nav>
+        <div style="padding:20px;color:#eceff1;">
+            <div class="row">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="text" type="text" class="validate white-text">
+                        <label for="text">Display Text</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m6">
+                        <select class="icons white-text" id="img" style="color: white;">
+                            <option value="none" class="white-text" disabled selected>Select One</option>
+                            <option value="busy" data-icon="./img/block-black-48dp.svg">Busy</option>
+                            <option value="camera" data-icon="./img/camera-black-48dp.svg">Taking Pictures</option>
+                            <option value="sanitize" data-icon="./img/clean_hands-black-48dp.svg">Sanitizing</option>
+                            <option value="code" data-icon="./img/code-black-48dp.svg">Coding</option>
+                            <option value="engineering" data-icon="./img/engineering-black-48dp.svg">Engineering</option>
+                            <option value="paperwork" data-icon="./img/folder-black-48dp.svg">Paper Work</option>
+                            <option value="handywork" data-icon="./img/handyman-black-48dp.svg">Handy Work</option>
+                            <option value="video" data-icon="./img/movie_creation-black-48dp.svg">Video</option>
+                            <option value="driving" data-icon="./img/sports_motorsports-black-48dp.svg">Driving the bot</option>
+                            <option value="scouting" data-icon="./img/tablet_android-black-48dp.svg">Scouting</option>
+                        </select>
+                        <label>Image</label>
+                    </div>
+                </div>
+                <div class="switch">
+                    <label>
+                        Off
+                        <input type="checkbox" id="e">
+                        <span class="lever"></span>
+                        On
+                    </label>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <ul class="sidenav grey darken-3" id="sn">
+        <li style="text-align: left;" id="close-nav"><a href="#">Close</a></li>
+    </ul>      
+
 </body>

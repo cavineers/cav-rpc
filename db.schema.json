@@ -1,0 +1,5 @@
+{
+    "firstBoot": {
+        "type": "boolean"
+    }
+}

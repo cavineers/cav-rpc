@@ -1,11 +1,22 @@
 html, body {
     box-sizing: border-box;
     margin: 0;
-    padding: 20px;
+    padding: 0px;
     font-family: sans-serif;
-    background-color: #eaeaea;
+    background-color: #212121;
     text-align: center;
+    #boot {
+        text-align:center;
+        color:#fafafa;
+        #boot-text {
+            color:#9e9e9e;
+        }
+        img {
+            width:60vw;
+        }
+    }
     #main {
         display: none;
+        text-align: left;
     }
 }

@@ -1,1 +1,1 @@
-html,body{-webkit-box-sizing:border-box;box-sizing:border-box;margin:0;padding:20px;font-family:sans-serif;background-color:#eaeaea;text-align:center}html #main,body #main{display:none}
+html,body{-webkit-box-sizing:border-box;box-sizing:border-box;margin:0;padding:0px;font-family:sans-serif;background-color:#212121;text-align:center}html #boot,body #boot{text-align:center;color:#fafafa}html #boot #boot-text,body #boot #boot-text{color:#9e9e9e}html #boot img,body #boot img{width:60vw}html #main,body #main{display:none;text-align:left}
