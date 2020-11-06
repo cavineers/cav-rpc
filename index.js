@@ -1,8 +1,7 @@
 // Import
-const { app, BrowserWindow, ipcMain } = require("electron");
+const { app, BrowserWindow } = require("electron");
 const { autoUpdater } = require("electron-updater");
 const log = require("electron-log");
-const fs = require("fs");
 
 // Main window
 let mainWindow;
