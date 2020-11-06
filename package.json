@@ -1,7 +1,7 @@
 {
     "name": "cav-rpc",
-    "version": "0.1.0",
-    "description": "",
+    "version": "0.1.1",
+    "description": "Show what your up to by sharing a custom Discord presence.",
     "main": "index.js",
     "repository": {
         "type": "git",
@@ -24,21 +24,21 @@
     "author": "Bryce Cary <robotics@brycecary.dev>",
     "license": "MIT",
     "devDependencies": {
-        "@types/discord-rpc": "^3.0.4",
-        "@types/materialize-css": "^1.0.8",
-        "electron": "^10.1.5",
-        "electron-builder": "^22.9.1"
+        "@types/discord-rpc": "3.0.4",
+        "@types/materialize-css": "1.0.8",
+        "electron": "10.1.5",
+        "electron-builder": "22.9.1"
     },
     "dependencies": {
-        "discord-rpc": "^3.1.4",
-        "electron-log": "^4.3.0",
-        "electron-store": "^6.0.1",
-        "electron-updater": "^4.3.5"
+        "discord-rpc": "3.1.4",
+        "electron-log": "4.3.0",
+        "electron-store": "6.0.1",
+        "electron-updater": "4.3.5"
     },
     "build": {
         "appId": "com.cavineers.rpc",
         "productName": "Cavineers RPC",
-        "copyright": "Copyright © 2020 Cavineers",
+        "copyright": "Copyright © 2020 FRC Team 4541",
         "win": {
             "target": "nsis",
             "icon": "img/logo.ico",
