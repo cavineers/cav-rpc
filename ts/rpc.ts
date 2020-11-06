@@ -1,5 +1,5 @@
 import { Client as DRPC } from "discord-rpc";
-const EventEmitter = require("events");
+import EventEmitter from "events";
 
 export default class RPC extends EventEmitter {
     private client: DRPC;

@@ -1,4 +1,5 @@
-declare const EventEmitter: any;
+/// <reference types="node" />
+import EventEmitter from "events";
 export default class RPC extends EventEmitter {
     private client;
     private clientId;
@@ -17,4 +18,3 @@ export default class RPC extends EventEmitter {
     setState(txt: string): void;
     private setActivity;
 }
-export {};

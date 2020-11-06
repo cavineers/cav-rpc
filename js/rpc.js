@@ -1,8 +1,11 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const discord_rpc_1 = require("discord-rpc");
-const EventEmitter = require("events");
-class RPC extends EventEmitter {
+const events_1 = __importDefault(require("events"));
+class RPC extends events_1.default {
     constructor() {
         super();
         this.clientId = "518144885849718784";
