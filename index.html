@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <!-- Meta -->
-    <title>CRPC</title>
+    <title>Cavineers RPC</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="./css/materialize.min.css">
@@ -9,7 +9,16 @@
 
     <!-- JS -->
     <script src="./js/materialize.min.js"></script>
-    <script src="./js/client.js"></script>
+    <script>
+    var exports = {"__esModule": true};
+    const client = new (require("./js/client.js")).default();
+
+    const { ipcRenderer } = require("electron");
+
+    ipcRenderer.on("update_status", (a,b) => {
+        client.updateStatus(a,b);
+    });
+    </script>
 </head>
 <body>
     <!-- Boot page -->
@@ -31,30 +40,36 @@
         </nav>
         <div style="padding:20px;color:#eceff1;">
             <div class="row">
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="text" type="text" class="validate white-text">
-                        <label for="text">Display Text</label>
-                    </div>
+                <div class="input-field col s12">
+                    <input id="text" type="text" class="validate white-text">
+                    <label for="text">Top line</label>
                 </div>
-                <div class="row">
-                    <div class="input-field col s12 m6">
-                        <select class="icons white-text" id="img" style="color: white;">
-                            <option value="none" class="white-text" disabled selected>Select One</option>
-                            <option value="busy" data-icon="./img/block-black-48dp.svg">Busy</option>
-                            <option value="camera" data-icon="./img/camera-black-48dp.svg">Taking Pictures</option>
-                            <option value="sanitize" data-icon="./img/clean_hands-black-48dp.svg">Sanitizing</option>
-                            <option value="code" data-icon="./img/code-black-48dp.svg">Coding</option>
-                            <option value="engineering" data-icon="./img/engineering-black-48dp.svg">Engineering</option>
-                            <option value="paperwork" data-icon="./img/folder-black-48dp.svg">Paper Work</option>
-                            <option value="handywork" data-icon="./img/handyman-black-48dp.svg">Handy Work</option>
-                            <option value="video" data-icon="./img/movie_creation-black-48dp.svg">Video</option>
-                            <option value="driving" data-icon="./img/sports_motorsports-black-48dp.svg">Driving the bot</option>
-                            <option value="scouting" data-icon="./img/tablet_android-black-48dp.svg">Scouting</option>
-                        </select>
-                        <label>Image</label>
-                    </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="text2" type="text" class="validate white-text">
+                    <label for="text2">Bottom line</label>
                 </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m6" style="color: white;">
+                    <select class="icons white-text" id="img" style="color: white;">
+                        <option value="none" class="white-text" disabled selected>Select One</option>
+                        <option value="busy" data-icon="./img/block-black-48dp.svg">Busy</option>
+                        <option value="camera" data-icon="./img/camera-black-48dp.svg">Taking Pictures</option>
+                        <option value="sanitize" data-icon="./img/clean_hands-black-48dp.svg">Sanitizing</option>
+                        <option value="code" data-icon="./img/code-black-48dp.svg">Coding</option>
+                        <option value="engineering" data-icon="./img/engineering-black-48dp.svg">Engineering</option>
+                        <option value="paperwork" data-icon="./img/folder-black-48dp.svg">Paper Work</option>
+                        <option value="handywork" data-icon="./img/handyman-black-48dp.svg">Handy Work</option>
+                        <option value="video" data-icon="./img/movie_creation-black-48dp.svg">Video</option>
+                        <option value="driving" data-icon="./img/sports_motorsports-black-48dp.svg">Driving the bot</option>
+                        <option value="scouting" data-icon="./img/tablet_android-black-48dp.svg">Scouting</option>
+                    </select>
+                    <label class="white-text">Image</label>
+                </div>
+            </div>
+            <div class="row">
                 <div class="switch">
                     <label>
                         Off
@@ -63,6 +78,9 @@
                         On
                     </label>
                 </div>
+            </div>
+            <div class="row">
+                <button class="btn btn-large col s12" id="update">Update</button>
             </div>
         </div>
     </div>

@@ -23,6 +23,8 @@
     "author": "Bryce Cary <robotics@brycecary.dev>",
     "license": "MIT",
     "devDependencies": {
+        "@types/discord-rpc": "^3.0.4",
+        "@types/materialize-css": "^1.0.8",
         "electron": "^10.1.5",
         "electron-builder": "^22.9.1"
     },
@@ -34,6 +36,8 @@
     },
     "build": {
         "appId": "com.cavineers.rpc",
+        "productName": "Cavineers RPC",
+        "copyright": "Copyright © 2020 Cavineers",
         "win": {
             "target": "nsis",
             "icon": "img/logo.ico",
@@ -42,7 +46,7 @@
         "linux": {
             "target": "deb",
             "icon": "img/logo.png",
-            "synopsis": "Cavineers Discord Presence",
+            "synopsis": "Cavineers RPC",
             "category": "InstantMessaging"
         },
         "nsis": {
@@ -54,7 +58,7 @@
             "createDesktopShortcut": "always",
             "createStartMenuShortcut": true,
             "menuCategory": "4541 Cavineers",
-            "shortcutName": "Cavineers Discord Presence"
+            "shortcutName": "Cavineers RPC"
         },
         "publish": {
             "provider": "github",

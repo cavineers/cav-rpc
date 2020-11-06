@@ -18,5 +18,8 @@ html, body {
     #main {
         display: none;
         text-align: left;
+        input.select-dropdown {
+            color:white !important;
+        }
     }
 }

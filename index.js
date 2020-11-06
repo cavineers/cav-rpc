@@ -30,7 +30,7 @@ app.on("ready", () => {
     log.info("Ready, starting app");
     mainWindow = new BrowserWindow({
         width: 500,
-        height: 500,
+        height: 540,
         resizable: false,
         webPreferences: {
             nodeIntegration: true,

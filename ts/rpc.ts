@@ -1,41 +1,47 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const discord_rpc_1 = require("discord-rpc");
+import { Client as DRPC } from "discord-rpc";
 const EventEmitter = require("events");
-class RPC extends EventEmitter {
+
+export default class RPC extends EventEmitter {
+    private client: DRPC;
+    private clientId: string = "518144885849718784";
+    private secret: string = "2xl2VAUCfeNnBu__nm5xWkPmPw3Tn2ze";
+    private scopes: string[] = ["guilds"];
+    private state: string = "";
+    private txt: string = "";
+    private img: string = "";
+    private timestamp: Date = new Date();
+    private process: any;
+
     constructor() {
         super();
-        this.clientId = "518144885849718784";
-        this.secret = "2xl2VAUCfeNnBu__nm5xWkPmPw3Tn2ze";
-        this.scopes = ["guilds"];
-        this.state = "";
-        this.txt = "";
-        this.img = "";
-        this.timestamp = new Date();
-        this.client = new discord_rpc_1.Client({ transport: "ipc" });
+        this.client = new DRPC({ transport: "ipc" });
+
         this.client.on("ready", () => {
             //@ts-expect-error
             console.log(`Connected to ${this.client.user.username} through ${this.client.clientId}`);
         });
+
         this.client
             .login({ clientId: this.clientId, clientSecret: this.secret })
             .then(() => {
-            // console.log(this.client.accessToken);
-            // this.client
-            //     .getGuild("578394134314876928", 5000)
-            //     .then(console.log)
-            //     .catch((e) => {
-            //         console.log("error", e);
-            //     });
-        })
+                // console.log(this.client.accessToken);
+                // this.client
+                //     .getGuild("578394134314876928", 5000)
+                //     .then(console.log)
+                //     .catch((e) => {
+                //         console.log("error", e);
+                //     });
+            })
             .catch((e) => {
-            this.emit("error", e);
-        });
+                this.emit("error", e);
+            });
+
         this.on("change", () => {
             this.timestamp = new Date();
         });
     }
-    enable() {
+
+    public enable(): boolean {
         if (this.state.length > 2 && this.txt.length > 2 && this.img.length > 2) {
             this.process = setInterval(() => {
                 this.setActivity();
@@ -43,29 +49,33 @@ class RPC extends EventEmitter {
             this.setActivity();
             this.emit("enabled");
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
-    disable() {
+
+    public disable(): void {
         clearInterval(this.process);
         this.client.clearActivity();
         this.emit("disabled");
     }
-    setImage(img) {
+
+    public setImage(img: string) {
         this.img = img;
         this.emit("changed", { top: this.txt, btm: this.state, img: this.img });
     }
-    setText(txt) {
+
+    public setText(txt: string) {
         this.txt = txt;
         this.emit("changed", { top: this.txt, btm: this.state, img: this.img });
     }
-    setState(txt) {
+
+    public setState(txt: string): void {
         this.state = txt;
         this.emit("changed", { top: this.txt, btm: this.state, img: this.img });
     }
-    setActivity() {
+
+    private setActivity(): void {
         this.client.setActivity({
             details: this.txt,
             state: this.state,
@@ -77,4 +87,3 @@ class RPC extends EventEmitter {
         });
     }
 }
-exports.default = RPC;

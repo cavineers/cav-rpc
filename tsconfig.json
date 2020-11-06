@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+        "target": "ES2015",
+        "strict": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "noImplicitAny": true,
+        "declaration": true,
+        "module": "commonjs",
+        "rootDir": "ts",
+        "outDir": "js"
+    }
+}
