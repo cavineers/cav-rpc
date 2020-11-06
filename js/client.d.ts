@@ -1,4 +1,4 @@
-import { IpcRendererEvent } from "electron/main";
+import { IpcRendererEvent } from "electron";
 export default class Client {
     private schema;
     private rpc;

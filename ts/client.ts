@@ -1,7 +1,6 @@
 // Import
-import { ipcRenderer } from "electron";
+import { IpcRendererEvent } from "electron";
 import Store from "electron-store";
-import { IpcRendererEvent } from "electron/main";
 import * as fs from "fs";
 import * as Path from "path";
 import RPC from "./rpc";
