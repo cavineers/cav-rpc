@@ -49,8 +49,8 @@ class Client {
                 break;
             case 2:
                 b.innerText = args.text;
-                b.style.display = "none";
-                a.style.display = "block";
+                // b.style.display = "none";
+                // a.style.display = "block";
                 if ((_a = this.store) === null || _a === void 0 ? void 0 : _a.has("firstBoot")) {
                     this.store.set("firstBoot", false);
                 }

@@ -27,8 +27,8 @@ export default class Client {
                 break;
             case 2:
                 b.innerText = args.text;
-                b.style.display = "none";
-                a.style.display = "block";
+                // b.style.display = "none";
+                // a.style.display = "block";
                 if (this.store?.has("firstBoot")) {
                     this.store.set("firstBoot", false);
                 }
