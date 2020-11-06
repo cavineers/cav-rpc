@@ -17,7 +17,8 @@
         "deploy-win": "electron-builder build --win --publish always",
         "build-linux": "electron-builder build --linux --publish never",
         "deploy-linux": "electron-builder build --linux --publish always",
-        "deploy": "electron-builder build --linux --win --publish always"
+        "deploy": "electron-builder build --linux --win --publish always",
+        "build": "electron-builder build --linux --win --publish never"
     },
     "keywords": [],
     "author": "Bryce Cary <robotics@brycecary.dev>",
