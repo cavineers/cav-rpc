@@ -39,17 +39,29 @@ class RPC extends events_1.default {
         });
     }
     enable() {
-        if (this.state.length > 2 && this.txt.length > 2 && this.img.length > 2) {
-            this.process = setInterval(() => {
+        var _a;
+        if (((_a = this.client.user) === null || _a === void 0 ? void 0 : _a.id) != undefined) {
+            if (this.state.length > 2 && this.txt.length > 2 && this.img.length > 2) {
+                this.process = setInterval(() => {
+                    this.setActivity();
+                }, 30000);
                 this.setActivity();
-            }, 30000);
-            this.setActivity();
-            this.emit("enabled");
-            return true;
+                this.emit("enabled");
+                return true;
+            }
         }
         else {
-            return false;
+            console.log("undefined");
+            this.client
+                .login({ clientId: this.clientId, clientSecret: this.secret })
+                .then(() => {
+                this.enable();
+            })
+                .catch((e) => {
+                this.emit("error", e);
+            });
         }
+        return false;
     }
     disable() {
         clearInterval(this.process);

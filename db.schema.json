@@ -10,5 +10,8 @@
     },
     "image": {
         "type": "string"
+    },
+    "branch": {
+        "type": "string"
     }
 }

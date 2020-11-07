@@ -1,6 +1,6 @@
 {
     "name": "cav-rpc",
-    "version": "0.1.2",
+    "version": "0.1.4-alpha",
     "description": "Show what your up to by sharing a custom Discord presence.",
     "main": "index.js",
     "repository": {
@@ -39,6 +39,7 @@
         "appId": "com.cavineers.rpc",
         "productName": "Cavineers RPC",
         "copyright": "Copyright © 2020 FRC Team 4541",
+        "generateUpdatesFilesForAllChannels": true,
         "win": {
             "target": "nsis",
             "icon": "img/logo.ico",

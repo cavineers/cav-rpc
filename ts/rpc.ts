@@ -42,16 +42,27 @@ export default class RPC extends EventEmitter {
     }
 
     public enable(): boolean {
-        if (this.state.length > 2 && this.txt.length > 2 && this.img.length > 2) {
-            this.process = setInterval(() => {
+        if (this.client.user?.id != undefined) {
+            if (this.state.length > 2 && this.txt.length > 2 && this.img.length > 2) {
+                this.process = setInterval(() => {
+                    this.setActivity();
+                }, 30000);
                 this.setActivity();
-            }, 30000);
-            this.setActivity();
-            this.emit("enabled");
-            return true;
+                this.emit("enabled");
+                return true;
+            }
         } else {
-            return false;
+            console.log("undefined");
+            this.client
+                .login({ clientId: this.clientId, clientSecret: this.secret })
+                .then(() => {
+                    this.enable();
+                })
+                .catch((e) => {
+                    this.emit("error", e);
+                });
         }
+        return false;
     }
 
     public disable(): void {

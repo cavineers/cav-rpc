@@ -85,8 +85,34 @@
         </div>
     </div>
 
-    <ul class="sidenav grey darken-3" id="sn">
-        <li style="text-align: left;" id="close-nav"><a href="#">Close</a></li>
+    <ul class="sidenav grey darken-3" id="sn" style="width:425px !important;">
+        <li style="text-align: left;" id="close-nav"><a href="#" style="color: white;text-align: center;"><strong>Close</strong></a></li>
+        <li><div class="divider"></div></li>
+        <li style="height:100px !important;line-height: 19px !important;">
+            <div class="row">
+                <div class="input-field col s12 m6" style="color: rgb(121, 121, 121);">
+                    <select class="white-text" id="branch" style="color: rgb(121, 121, 121);">
+                        <option value="latest" selected>Stable (Recommended)</option>
+                        <option value="beta">Beta (Early access)</option>
+                        <option value="alpha">Alpha (Unstable, may brick your entire install)</option>
+                    </select>
+                    <label class="white-text">Update Branch</label>
+                </div>
+            </div>
+        </li>
+        <li style="height:100px !important;line-height: 19px !important;">
+            <div class="row">
+                <div class="input-field col s12 m6" style="color: rgb(121, 121, 121);">
+                    <select class="white-text" id="theme" style="color: rgb(121, 121, 121);">
+                        <option value="latest" selected>Dark</option>
+                    </select>
+                    <label class="white-text">Theme</label>
+                </div>
+            </div>
+        </li>
+        <li><div class="divider"></div></li>
+        <li>Version: v<strong id="v"></strong></li>
+        <li>Copyright &copy; 2020 FRC Team 4541</li>
     </ul>      
 
 </body>

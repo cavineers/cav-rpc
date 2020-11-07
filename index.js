@@ -2,6 +2,10 @@
 const { app, BrowserWindow } = require("electron");
 const { autoUpdater } = require("electron-updater");
 const log = require("electron-log");
+const fs = require("fs");
+const Path = require("path");
+const Store = require("electron-store");
+const { electron } = require("process");
 
 // Main window
 let mainWindow;
@@ -24,8 +28,14 @@ if (isDev()) {
     log.info("Running in development mode");
 }
 
+// Store
+let schema = JSON.parse(fs.readFileSync(Path.join(__dirname, "db.schema.json"), "utf-8"));
+let store = new Store({ schema: schema, fileExtension: "db", clearInvalidConfig: true, accessPropertiesByDotNotation: true });
+
 // Create window when ready
 app.on("ready", () => {
+    log.info("Copyright © 2020 FRC Team 4541");
+    log.info(`Version: v${app.getVersion()}`);
     log.info("Ready, starting app");
     mainWindow = new BrowserWindow({
         width: 500,
@@ -51,6 +61,9 @@ app.on("ready", () => {
             }, 1000);
         } else {
             log.info("In production, checking for updates");
+            if (store.has("branch")) {
+                autoUpdater.channel = store.get("branch");
+            }
             autoUpdater.autoInstallOnAppQuit = false;
             autoUpdater.checkForUpdatesAndNotify();
         }
@@ -83,7 +96,7 @@ autoUpdater.on("error", (err) => {
     sendStatusToWindow({ text: `Error in auto-updater: ${err.toString()}`, code: -1 });
 });
 autoUpdater.on("download-progress", (progressObj) => {
-    sendStatusToWindow({ code: 3, total: progressObj.total, current: progressObj.transferred + 1, percent: progressObj.percent });
+    sendStatusToWindow({ code: 3, total: progressObj.total, current: progressObj.transferred, percent: progressObj.percent });
 });
 
 autoUpdater.on("update-downloaded", () => {

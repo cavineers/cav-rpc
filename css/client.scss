@@ -5,9 +5,14 @@ html, body {
     font-family: sans-serif;
     background-color: #212121;
     text-align: center;
+    input.select-dropdown {
+        color:rgb(151, 151, 151) !important;
+    }
     #boot {
         text-align:center;
         color:#fafafa;
+        padding:0px 40px;
+        user-select: none;
         #boot-text {
             color:#9e9e9e;
         }
@@ -18,8 +23,5 @@ html, body {
     #main {
         display: none;
         text-align: left;
-        input.select-dropdown {
-            color:white !important;
-        }
     }
 }
