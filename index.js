@@ -5,7 +5,6 @@ const log = require("electron-log");
 const fs = require("fs");
 const Path = require("path");
 const Store = require("electron-store");
-const { electron } = require("process");
 
 // Main window
 let mainWindow;
