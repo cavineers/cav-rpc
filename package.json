@@ -1,6 +1,6 @@
 {
     "name": "cav-rpc",
-    "version": "0.1.6-alpha",
+    "version": "0.1.7",
     "description": "Show what your up to by sharing a custom Discord presence.",
     "main": "index.js",
     "repository": {

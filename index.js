@@ -60,9 +60,7 @@ app.on("ready", () => {
             }, 1000);
         } else {
             log.info("In production, checking for updates");
-            if (store.has("branch")) {
-                autoUpdater.channel = store.get("branch");
-            }
+            autoUpdater.channel = store.has("branch") ? store.get("branch") : "latest";
             autoUpdater.autoInstallOnAppQuit = false;
             autoUpdater.checkForUpdatesAndNotify();
         }
