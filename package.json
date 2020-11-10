@@ -1,11 +1,11 @@
 {
     "name": "cav-rpc",
-    "version": "0.1.8-alpha",
+    "version": "0.1.9",
     "description": "Show what your up to by sharing a custom Discord presence.",
     "main": "index.js",
     "repository": {
         "type": "git",
-        "url": "https://github.com/topmastered/cav-rpc"
+        "url": "https://github.com/cavineers/cav-rpc"
     },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",

@@ -4,7 +4,6 @@ import EventEmitter from "events";
 export default class RPC extends EventEmitter {
     private client: DRPC;
     private clientId: string = "518144885849718784";
-    private secret: string = "2xl2VAUCfeNnBu__nm5xWkPmPw3Tn2ze";
     private scopes: string[] = ["guilds"];
     private state: string = "";
     private txt: string = "";
